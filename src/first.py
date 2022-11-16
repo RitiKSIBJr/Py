@@ -34,8 +34,18 @@ def new(incomes):
     
     return (dict(total))
 
+def prime(num):
+    num = int(num)
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+            break
+
+    return True
 
 
 if __name__ == "__main__":
-    result_get("iamritik")
-    print(new(incomes))
+    # result_get("iamritik")
+    # print(new(incomes))
+    print(prime(9))
+    
