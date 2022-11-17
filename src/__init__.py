@@ -1,1 +1,1 @@
-from src.first import result_get, new
+from src.first import result_get, new, prime, incomes

@@ -1,4 +1,5 @@
 from collections import defaultdict, Counter
+import string
 
 incomes = [('Books', 1250.00),
            ('Books', 1300.00),
@@ -39,13 +40,20 @@ def prime(num):
     for i in range(2, num):
         if num % i == 0:
             return False
-            break
 
     return True
 
+def palindrome(strs):
+    for x in string.punctuation:
+        strs = strs.replace(x, "").replace(" ","").lower()
+    if strs[::-1] == strs:
+        return (strs[::-1])
+    
+
 
 if __name__ == "__main__":
-    # result_get("iamritik")
-    # print(new(incomes))
-    print(prime(9))
+    result_get("iamritik")
+    new(incomes)
+    prime(11)
+    palindrome("Hi! This is me.")
     
