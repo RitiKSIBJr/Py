@@ -8,12 +8,7 @@ def no_of_types_in_year():
         for line in reader:
             year = str(line['Year_launch'])
             type = str(line['Type'])
-            
-            if type in dict(types_in_year[year]):
-                types_in_year[year][type] += 1
-            
-            else:
-                types_in_year[year][type] = 1
+            types_in_year[year][type] += 1
             
         return (types_in_year)
 
@@ -43,13 +38,7 @@ def total_votes_in_year():
 
             vote = int(line['Votes'])
             year = str(line['Year_launch'])
-
-            if year in votes:
-                votes[year] += vote
-            
-            else:
-                votes[year] = vote
-            
+            votes[year] += vote
         return (dict(votes))
 
 
@@ -59,14 +48,9 @@ def saga():
         reader = csv.DictReader(file, fieldnames=['Num_episode','Title', 'Type', 'Year_launch', 'Rate', 'Votes', 'Saga', 'Airdate'])
         for line in reader:
             name = str(line['Saga'])
-            
-            if name not in episodes:
-                episodes[name] = 1
-            
-            else:
-
-                episodes[name] += 1
-    return dict(episodes)
+       
+            episodes[name] += 1
+    return( dict(episodes))
 
 
 if __name__ == "__main__":

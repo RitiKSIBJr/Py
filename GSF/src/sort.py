@@ -24,13 +24,7 @@ def goal_scored_in_a_year():
         for  line in reader:
             player =str( line['scorer'])
             b = str(line['date'].split("-")[0]) 
-
-            if b in scorer[player]:
-                scorer[player][b] += 1
-
-            else:
-                scorer[player][b] = 1
-            
+            scorer[player][b] += 1
         print(scorer)
 
 if __name__ == "__main__":
