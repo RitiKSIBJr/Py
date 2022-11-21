@@ -19,25 +19,20 @@ def most_win_till_1916():
 def goal_scored_in_a_year():
     with open('goalscorers.csv','r', encoding='utf-8') as file:
         reader = csv.DictReader(file, fieldnames=['date','away_team','home_team', 'team', 'scorer', 'minute', 'own_goal', 'penalty'])
-        scorer, year = defaultdict(int), defaultdict(int)
-        prev_year = '1916'
+        scorer = defaultdict(lambda: defaultdict(int))
 
-        for line in reader:
-            scorer[line['scorer']] += 1
-            curr_year = line['date'].split("-")[0]
+        for  line in reader:
+            player =str( line['scorer'])
+            b = str(line['date'].split("-")[0]) 
 
-            if curr_year != prev_year:
-                scorer = defaultdict(int)
-                
+            if b in scorer[player]:
+                scorer[player][b] += 1
+
             else:
-                year[curr_year] = scorer
-                
-            prev_year = curr_year 
+                scorer[player][b] = 1
             
-        for x in year:
-            print(x + " - " +str(year[x]))
-            #print out 'year' - '{'scorer' : goad_scored, 'scorer' : goad_scored, 'scorer' : goad_scored, ...... }
-            
+        print(scorer)
+
 if __name__ == "__main__":
     most_win_till_1916()
     goal_scored_in_a_year()
