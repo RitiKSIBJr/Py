@@ -43,12 +43,12 @@ def type():
 def pokemon_types():
     with open('Pokemon.csv') as file:
         reader = csv.DictReader(file, fieldnames=['SN','Name','Type 1','Type 2','Total','Hp','Attack','Defense','Sp. Atk','Sp. Def','Speed','Generation','Legendary'])
-        type = defaultdict(lambda: defaultdict(list))
+        type = defaultdict(list)
         for line in reader:
-           type['type'][line['Type 1']].append(line['Name'])
+           type[line['Type 1']].append(line['Name'])
 
-        for x in type['type']:
-            print(x +' - '+ str(type['type'][x]))
+        for x in type:
+            print(x +' - '+ str(type[x]))
 
 if __name__ == "__main__":
     # types_of_pokemon()
