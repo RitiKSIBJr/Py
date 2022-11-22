@@ -29,7 +29,7 @@ def speed():
 
             speed[line['Speed']] += 1
 
-        return dict(speed)
+        return( dict(speed))
 
 def type():
     with open('Pokemon.csv') as file:
@@ -38,7 +38,7 @@ def type():
         for line in reader:
             poke[line['Type 1']][line['Name']] = line['Total']
 
-        return dict(poke)
+        return str((dict(poke)))
 
 def pokemon_types(choice):
 
@@ -47,7 +47,7 @@ def pokemon_types(choice):
         type = defaultdict(list)
         for line in reader:
             type[line['Type 1']].append(line['Name'])
-    return type
+    return (type)
 
 types = pokemon_types('Grass')
 
@@ -57,5 +57,5 @@ def lookup(type):
     
 
 if __name__ == "__main__":
-    lookup('Grass')
+    type()
 

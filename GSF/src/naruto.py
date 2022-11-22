@@ -10,7 +10,7 @@ def no_of_types_in_year():
             type = str(line['Type'])
             types_in_year[year][type] += 1
             
-        return (types_in_year)
+        return str((dict(types_in_year)))
 
 def rates():
     result = defaultdict(int)
